@@ -133,25 +133,25 @@ def main():
             fare, speed = predict_fare(distance, duration, class_code, model)
 
             # Warn if unrealistic
-            if distance / (duration / 60) > 130:
-                st.warning("⚠️ Unrealistically high speed (>130 km/h). Check distance or duration inputs.")
+            if distance / (duration / 60) > 130 or speed < 20:
+                st.warning("⚠️ Unrealistic input values. Check distance or duration inputs.")
+            else:
+                st.success("✅ Fare prediction completed!")
 
-            st.success("✅ Fare prediction completed!")
+                # --- Two-Row Result Display ---
+                st.markdown("### 💰 Predicted Fare")
+                st.markdown(
+                    f"<h2 style='text-align:center; color:#2ecc71;'>₹{fare:,.2f}</h2>",
+                    unsafe_allow_html=True
+                )
 
-            # --- Two-Row Result Display ---
-            st.markdown("### 💰 Predicted Fare")
-            st.markdown(
-                f"<h2 style='text-align:center; color:#2ecc71;'>₹{fare:,.2f}</h2>",
-                unsafe_allow_html=True
-            )
+                st.markdown("---")
 
-            st.markdown("---")
-
-            st.markdown("### 🚄 Average Speed")
-            st.markdown(
-                f"<h2 style='text-align:center; color:#3498db;'>{speed:.1f} km/h</h2>",
-                unsafe_allow_html=True
-            )
+                st.markdown("### 🚄 Average Speed")
+                st.markdown(
+                    f"<h2 style='text-align:center; color:#3498db;'>{speed:.1f} km/h</h2>",
+                    unsafe_allow_html=True
+                )
 
 
 if __name__ == "__main__":
