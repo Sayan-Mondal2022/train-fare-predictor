@@ -8,4 +8,4 @@ train_tickets_fare_ds/
 .ipynb_checkpoints
 
 # Trained Model
-model.pkl
+# model.pkl
