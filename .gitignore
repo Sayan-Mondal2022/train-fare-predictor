@@ -3,3 +3,9 @@
 
 # Dataset folder:
 train_tickets_fare_ds/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# Trained Model
+model.pkl
