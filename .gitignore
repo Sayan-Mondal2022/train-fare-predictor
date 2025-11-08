@@ -1,0 +1,5 @@
+# Python Virtual env
+.venv
+
+# Dataset folder:
+train_tickets_fare_ds/
